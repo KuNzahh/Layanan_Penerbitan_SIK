@@ -221,13 +221,13 @@ $koneksi->close();
                     <div class="card-header">
                         <h3 class="card-title">Laporan SIK Terbit Berdasarkan Kegiatan</h3>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <label for="filterMonth">Pilih Bulan</label>
-                            <input type="month" class="form-control" id="filterMonth">
-                        </div>
-                    </div>
                     <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <label for="filterMonth">Pilih Bulan</label>
+                                <input type="month" class="form-control" id="filterMonth">
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table id="kegiatanTable" class="table table-bordered table-striped">
                                 <thead class="thead-dark">

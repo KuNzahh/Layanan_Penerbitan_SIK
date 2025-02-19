@@ -97,7 +97,7 @@ class PDF extends FPDF
                     0,
                     'L'
                 ); // Teks sebelum ':'
-                $this->Cell(50, 6, ':  ' . date('d F Y'), 0, 1, 'L');
+                $this->Cell(50, 5, ':  ' . date('d F Y'), 0, 1, 'L');
                 
                 $this->SetX($positionX);
                 $this->Cell(80, 0, '', 'T', 0, 'L');
@@ -105,7 +105,7 @@ class PDF extends FPDF
                 
         
                 $this->SetX($positionX);
-                $this->Cell(50, 6, 'a.n. KAPOLRES BARITO KUALA POLDA KALSEL', 0, 1, 'L');
+                $this->Cell(50, 3, 'a.n. KAPOLRES BARITO KUALA POLDA KALSEL', 0, 1, 'L');
                 
                 $this->SetX($positionX);
                 $this->Cell(50, 6, 'KEPALA SATUAN INTELKAM', 0, 1, 'L');

@@ -59,7 +59,7 @@ class PDF extends FPDF
         $this->Cell(25, 8, 'Nomor Arsip', 1, 0, 'C', true);
         $this->Cell(40, 8, 'Nama Instansi', 1, 0, 'C', true);
         $this->Cell(40, 8, 'Penanggung Jawab', 1, 0, 'C', true);
-        $this->Cell(40, 8, 'Nama Kegiatan', 1, 0, 'C', true);
+        $this->Cell(65, 8, 'Nama Kegiatan', 1, 0, 'C', true);
         $this->Cell(40, 8, 'Kecamatan', 1, 0, 'C', true);
         $this->Cell(30, 8, 'Tanggal Surat', 1, 1, 'C', true);
 
@@ -70,7 +70,7 @@ class PDF extends FPDF
             $this->Cell(25, 8, $row['id_arsip'], 1, 0, 'C');
             $this->Cell(40, 8, $row['nama_instansi'], 1, 0, 'L');
             $this->Cell(40, 8, $row['penanggung_jawab'], 1, 0, 'L');
-            $this->Cell(40, 8, $row['nm_kegiatan'], 1, 0, 'L');
+            $this->Cell(65, 8, $row['nm_kegiatan'], 1, 0, 'L');
             $this->Cell(40, 8, $row['nm_kecamatan'], 1, 0, 'L');
             $this->Cell(30, 8, date('d-m-Y', strtotime($row['tanggal_surat'])), 1, 1, 'C');
         }
@@ -115,10 +115,10 @@ class PDF extends FPDF
 
 
         $this->SetX($positionX);
-        $this->Cell(50, 6, 'a.n. KAPOLRES BARITO KUALA POLDA KALSEL', 0, 1, 'L');
+        $this->Cell(50, 3, 'a.n. KAPOLRES BARITO KUALA POLDA KALSEL', 0, 1, 'L');
 
         $this->SetX($positionX);
-        $this->Cell(50, 6, 'KEPALA SATUAN INTELKAM', 0, 1, 'L');
+        $this->Cell(50, 5, 'KEPALA SATUAN INTELKAM', 0, 1, 'L');
         $this->Ln(15);
 
         // Ambil nama dan pangkat dari database

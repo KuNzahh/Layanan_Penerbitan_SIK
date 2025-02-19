@@ -190,8 +190,8 @@ $koneksi->close();
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="tgl_kegiatan">Waktu Kegiatan</label>
-                                        <input type="text" class="form-control" id="tgl_kegiatan" name="tgl_kegiatan" placeholder="tgl_kegiatan" required>
+                                        <label for="tgl_kegiatan">Waktu</label>
+                                        <input type="text" class="form-control" id="tgl_kegiatan" name="tgl_kegiatan" placeholder="Waktu Keramaian" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="tempat">Tempat</label>

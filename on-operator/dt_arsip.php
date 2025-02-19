@@ -143,7 +143,6 @@ $arsip_data = get_arsip_data($koneksi);
                                         <th>SIK</th>
                                         <th>Penanggung Jawab</th>
                                         <th>Tanggal Terbit</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody id="dataTableArsip">
@@ -173,11 +172,6 @@ $arsip_data = get_arsip_data($koneksi);
                                                 </td>
                                                 <td><?= htmlspecialchars($arsip['nama_penanggung_jawab']) ?></td>
                                                 <td><?= htmlspecialchars($arsip['tanggal_terbit']) ?></td>
-                                                <td>
-                                                    <a href="edit_arsip.php?id=<?= $arsip['id_arsip'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                                                    <a href="hapus_arsip.php?id=<?= $arsip['id_arsip'] ?>"
-                                                        class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
-                                                </td>
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else: ?>
@@ -200,26 +194,31 @@ $arsip_data = get_arsip_data($koneksi);
                             };
                         }
 
-                        // Fungsi pencarian arsip
-                        function searchDataArsip() {
-                            const searchValue = document.getElementById('searchBoxArsip').value.toLowerCase();
-                            const rows = document.querySelectorAll('#dataTableArsip tr');
+                        // Fungsi pencarian otomatis
+                        function searchData() {
+                            const query = document.getElementById("searchBox").value.toLowerCase();
+                            const rows = document.querySelectorAll("#dataTableArsip tr");
 
-                            rows.forEach(row => {
-                                const cells = row.querySelectorAll('td');
-                                const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(searchValue));
-                                row.style.display = match ? '' : 'none';
+                            rows.forEach((row) => {
+                                const cells = Array.from(row.querySelectorAll("td"));
+                                const match = cells.some((cell) => {
+                                    const text = cell.textContent.trim().toLowerCase();
+                                    return text.includes(query);
+                                });
+
+                                row.style.display = match ? "" : "none";
                             });
                         }
 
-                        // Pasang event listener untuk pencarian otomatis
+                        // Pasang event listener untuk pencarian
                         document.addEventListener("DOMContentLoaded", function() {
-                            const searchBoxArsip = document.getElementById('searchBoxArsip');
-                            if (searchBoxArsip) {
-                                searchBoxArsip.addEventListener('input', debounce(searchDataArsip, 300)); // 300ms jeda debounce
+                            const searchBox = document.getElementById("searchBox");
+                            if (searchBox) {
+                                searchBox.addEventListener("input", debounce(searchData, 300)); // 300ms jeda debounce
                             }
                         });
                     </script>
+
                 </div>
             </section>
         </div>
